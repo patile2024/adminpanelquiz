@@ -10,7 +10,7 @@ public class RegisterAdmin extends AppCompatActivity {
 
 
     private EditText eName , eEmail , ePass , ePhone ;
-    private TextView
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
