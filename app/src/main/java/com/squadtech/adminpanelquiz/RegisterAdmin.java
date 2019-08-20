@@ -41,6 +41,14 @@ public class RegisterAdmin extends AppCompatActivity {
         ePass = (EditText)findViewById(R.id.RegPass);
         ePhone = (EditText)findViewById(R.id.RegPhone);
 
+        txtAlreadyAcnt = (TextView)findViewById(R.id.txtAlreadyReg);
+        txtAlreadyAcnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterAdmin.this , LoginAdmin.class));
+            }
+        });
+
 
         //Button and Check box
 
