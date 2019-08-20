@@ -1,7 +1,9 @@
 package com.squadtech.adminpanelquiz;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +13,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+
 public class RegisterAdmin extends AppCompatActivity {
 
 
@@ -18,6 +29,8 @@ public class RegisterAdmin extends AppCompatActivity {
     private TextView txtAlreadyAcnt;
     private Button confirmBtn;
     private CheckBox checkBox;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +48,14 @@ public class RegisterAdmin extends AppCompatActivity {
         confirmBtn = (Button) findViewById(R.id.RegBtn);
         checkBox = (CheckBox) findViewById(R.id.Regchkbox);
 
+        mAuth = FirebaseAuth.getInstance();
+
+
+        if (!checkBox.isChecked()){
+            confirmBtn.setEnabled(false);
+
+        }
+
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,13 +70,50 @@ public class RegisterAdmin extends AppCompatActivity {
                     Toast.makeText(RegisterAdmin.this, "error "+ exception.getMessage() , Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    RegisterAccount();
+                    RegisterAccount(sName , sEmail, sPass , sPhone);
                 }
             }
         });
 
     }
 
-    private void RegisterAccount() {
+    private void RegisterAccount(final String sName, final String sEmail, final String sPass, final String sPhone) {
+
+
+
+        mAuth.createUserWithEmailAndPassword(sEmail , sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()){
+
+
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("Admins").child(FirebaseAuth.getInstance().getUid());
+                    final HashMap<String , Object> userMap = new HashMap<>();
+                    userMap.put("admin_name" , sName);
+                    userMap.put("admin_email" , sEmail);
+                    userMap.put("admin_phone" , sPhone);
+                    userMap.put("admin_pass" , sPass);
+                    userMap.put("admin_uid", FirebaseAuth.getInstance().getUid());
+
+
+                    mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                Intent mainIntent = new Intent(RegisterAdmin.this, MainActivity.class);
+                                mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(mainIntent);
+                                finish();
+                            }
+                        }
+                    });
+
+                }
+
+            }
+        });
+
     }
+
 }
