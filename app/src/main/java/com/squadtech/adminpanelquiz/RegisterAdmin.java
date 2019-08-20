@@ -109,12 +109,12 @@ mProgress.show();
                     userMap.put("admin_pass" , sPass);
                     userMap.put("admin_uid", FirebaseAuth.getInstance().getUid());
 
-mProgress.dismiss();
+                    mProgress.dismiss();
                     mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
-                                Intent mainIntent = new Intent(RegisterAdmin.this, MainActivity.class);
+                                Intent mainIntent = new Intent(RegisterAdmin.this, NavigationActivity.class);
                                 mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(mainIntent);
                                 finish();

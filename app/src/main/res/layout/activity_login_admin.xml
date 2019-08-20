@@ -45,6 +45,7 @@
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
             android:layout_marginTop="100dp"
+
             />
         <EditText
             android:layout_width="match_parent"
@@ -52,6 +53,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:id="@+id/LoginEmail"
+            android:inputType="textEmailAddress"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -69,6 +71,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:id="@+id/LoginPass"
+            android:inputType="textPassword"
             />
 
         <Button

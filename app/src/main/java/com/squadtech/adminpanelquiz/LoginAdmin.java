@@ -3,6 +3,7 @@ package com.squadtech.adminpanelquiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,13 +29,14 @@ public class LoginAdmin extends AppCompatActivity {
     private TextView txtNoAcount;
     private FirebaseAuth mAuth;
 
+    ProgressDialog mProgress;
     private DatabaseReference mUserDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_admin);
         
-        
+        mProgress = new ProgressDialog(this);
         LoginBtn = (Button)findViewById(R.id.LoginBtn);
         eEmail = (EditText)findViewById(R.id.LoginEmail);
         ePass = (EditText)findViewById(R.id.LoginPass);
@@ -81,11 +83,15 @@ public class LoginAdmin extends AppCompatActivity {
 
     private void LoginAccount(String sEmail, String sPass) {
 
+        mProgress.setTitle("Checking User");
+        mProgress.setMessage("Please wait");
+        mProgress.show();
         mAuth.signInWithEmailAndPassword(sEmail , sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    startActivity(new Intent(LoginAdmin.this , MainActivity.class));
+                    mProgress.dismiss();
+                    startActivity(new Intent(LoginAdmin.this , NavigationActivity.class));
                     finish();
                 }
                 else {
