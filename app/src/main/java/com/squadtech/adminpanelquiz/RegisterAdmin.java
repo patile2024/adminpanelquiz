@@ -108,6 +108,7 @@ mProgress.show();
                     userMap.put("admin_phone" , sPhone);
                     userMap.put("admin_pass" , sPass);
                     userMap.put("admin_uid", FirebaseAuth.getInstance().getUid());
+                    userMap.put("admin_profile" , "default");
 
                     mProgress.dismiss();
                     mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
