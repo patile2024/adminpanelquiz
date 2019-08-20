@@ -3,6 +3,7 @@ package com.squadtech.adminpanelquiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +33,8 @@ public class RegisterAdmin extends AppCompatActivity {
     private CheckBox checkBox;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+
+    private ProgressDialog mProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,8 @@ public class RegisterAdmin extends AppCompatActivity {
         eEmail = (EditText)findViewById(R.id.RegEmail);
         ePass = (EditText)findViewById(R.id.RegPass);
         ePhone = (EditText)findViewById(R.id.RegPhone);
+
+        mProgress = new ProgressDialog(this);
 
         txtAlreadyAcnt = (TextView)findViewById(R.id.txtAlreadyReg);
         txtAlreadyAcnt.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +65,6 @@ public class RegisterAdmin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        if (!checkBox.isChecked()){
-            confirmBtn.setEnabled(false);
-
-        }
 
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +90,9 @@ public class RegisterAdmin extends AppCompatActivity {
     private void RegisterAccount(final String sName, final String sEmail, final String sPass, final String sPhone) {
 
 
-
+mProgress.setTitle("Please Wait");
+mProgress.setMessage("Registering Account");
+mProgress.show();
         mAuth.createUserWithEmailAndPassword(sEmail , sPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -104,7 +108,7 @@ public class RegisterAdmin extends AppCompatActivity {
                     userMap.put("admin_pass" , sPass);
                     userMap.put("admin_uid", FirebaseAuth.getInstance().getUid());
 
-
+mProgress.dismiss();
                     mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
