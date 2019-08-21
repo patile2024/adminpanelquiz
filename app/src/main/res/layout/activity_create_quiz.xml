@@ -64,13 +64,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="25dp"
+        android:layout_margin="20dp"
         >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Option 1"
+            android:layout_marginBottom="10dp"
             android:id="@+id/option1"
             />
 
@@ -78,6 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Option 2"
+            android:layout_marginBottom="10dp"
             android:id="@+id/option2"
             />
 
@@ -85,6 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Option 3"
+            android:layout_marginBottom="10dp"
             android:id="@+id/option3"
             />
 
