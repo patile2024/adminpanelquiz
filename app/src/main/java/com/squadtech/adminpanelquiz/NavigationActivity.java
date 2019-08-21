@@ -1,5 +1,6 @@
 package com.squadtech.adminpanelquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -80,6 +81,7 @@ public class NavigationActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+
 
         } else if (id == R.id.nav_slideshow) {
 

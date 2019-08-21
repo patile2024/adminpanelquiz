@@ -16,11 +16,12 @@
     <string name="menu_send">Send</string>
     <string name="title_activity_navigation">NavigationActivity</string>
 
-    <string name="quiztypes">
+    <string-array name="quiztypes">
+        <item>Select Category</item>
         <item>General</item>
         <item>Logical</item>
         <item>Analytical</item>
         <item>ETEA</item>
 
-    </string>
+    </string-array>
 </resources>

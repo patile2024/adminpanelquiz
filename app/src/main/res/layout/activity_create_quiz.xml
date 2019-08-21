@@ -24,21 +24,37 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <Spinner
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/quizlist"
-        android:prompt="@string/quiztypes"
+        android:layout_height="match_parent">
 
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/registerrole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edbg"
+        android:entries="@array/quiztypes" />
 
     <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question: "
         android:textSize="18sp"
         />
         <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Write your Question"
@@ -84,6 +100,8 @@
     </LinearLayout>
 
     <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Correct Answer :"
@@ -94,7 +112,7 @@
         android:layout_height="wrap_content"
         android:hint="Write a Correct Answer"
         android:id="@+id/crctanswer"
-        android:layout_margin="25dp"
+        android:layout_margin="20dp"
         />
 
 
@@ -108,8 +126,8 @@
         android:layout_margin="25dp"
         />
 
+    </LinearLayout>
 
-
-
+    </ScrollView>
 
 </LinearLayout>
