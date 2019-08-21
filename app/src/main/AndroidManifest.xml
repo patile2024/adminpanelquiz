@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ETEACategoryRV"></activity>
+        <activity android:name=".AnalyticalQuestionsRV"></activity>
+        <activity android:name=".LogicalCategoryRV" />
+        <activity android:name=".ETEACategoryRV" />
         <activity android:name=".GeneralCategoryRV" />
         <activity android:name=".CreateQuiz" />
         <activity

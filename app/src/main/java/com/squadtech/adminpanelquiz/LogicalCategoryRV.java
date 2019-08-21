@@ -18,8 +18,8 @@ import com.squadtech.adminpanelquiz.Models.GeneralCategoryModel;
 
 import java.util.ArrayList;
 
-public class ETEACategoryRV extends AppCompatActivity
-{
+public class LogicalCategoryRV extends AppCompatActivity {
+
     private RecyclerView questionRecyclerView;
     private DatabaseReference mRootRef_retrieve;
     private FirebaseAuth mAuth;
@@ -28,26 +28,22 @@ public class ETEACategoryRV extends AppCompatActivity
     private GeneralQuestionAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eteacategory_rv);
+        setContentView(R.layout.activity_logical_category_rv);
 
-        questionRecyclerView = findViewById(R.id.etea_Questions_rvID);
+        questionRecyclerView = findViewById(R.id.logical_Questions_rvID);
         questionRecyclerView.setHasFixedSize(true);
         questionRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mAuth = FirebaseAuth.getInstance();
-        mRootRef_retrieve = FirebaseDatabase.getInstance().getReference("Questions").child("Categories").child("ETEA");
+        mRootRef_retrieve = FirebaseDatabase.getInstance().getReference("Questions").child("Categories").child("Logical");
 
-        mRootRef_retrieve.addValueEventListener(new ValueEventListener()
-        {
+        mRootRef_retrieve.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listModel.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     GeneralCategoryModel model = snapshot.getValue(GeneralCategoryModel.class);
                     listModel.add(model);
                 }
@@ -57,8 +53,7 @@ public class ETEACategoryRV extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
