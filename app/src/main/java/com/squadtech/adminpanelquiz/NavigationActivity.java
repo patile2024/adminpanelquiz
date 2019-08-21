@@ -38,7 +38,8 @@ public class NavigationActivity extends AppCompatActivity
         manageQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
+                startActivity(new Intent(NavigationActivity.this, CreateQuiz.class));
             }
         });
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
