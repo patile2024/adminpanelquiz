@@ -101,11 +101,11 @@ public class NavigationActivity extends AppCompatActivity
 
         if (id == R.id.nav_general)
         {
-
+            startActivity(new Intent(getApplicationContext(), GeneralCategoryRV.class));
         }
         else if (id == R.id.nav_etea)
         {
-
+            startActivity(new Intent(getApplicationContext(), ETEACategoryRV.class));
         }
         else if (id == R.id.nav_logical)
         {
