@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:text="srk@gmail.com"
             android:id="@+id/LoginEmail"
             android:inputType="textEmailAddress"
             />
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:text="123456"
             android:id="@+id/LoginPass"
             android:inputType="textPassword"
             />
