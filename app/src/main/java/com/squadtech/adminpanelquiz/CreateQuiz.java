@@ -40,6 +40,7 @@ public class CreateQuiz extends AppCompatActivity {
         opt4 =(EditText)findViewById(R.id.option4);
         question =(EditText)findViewById(R.id.writeQuestion);
         answer =(EditText)findViewById(R.id.crctanswer);
+        time = (EditText)findViewById(R.id.setTimer_id);
 
         creatBtn = (Button)findViewById(R.id.quizBtn);
 
@@ -50,21 +51,23 @@ public class CreateQuiz extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String ques = question.getText().toString();
-                String ans = question.getText().toString();
-                String op1 = question.getText().toString();
-                String op2 = question.getText().toString();
-                String op3 = question.getText().toString();
-                String op4 = question.getText().toString();
+                String ans = answer.getText().toString();
+                String op1 = opt1.getText().toString();
+                String op2 = opt2.getText().toString();
+                String op3 = opt3.getText().toString();
+                String op4 = opt4.getText().toString();
                 String cat = category.getSelectedItem().toString();
+                String tym = time.getText().toString();
 
                 if (!TextUtils.isEmpty(ques)&&!TextUtils.isEmpty(ans)
                         &&!TextUtils.isEmpty(op1)
                         &&!TextUtils.isEmpty(op2)
                         &&!TextUtils.isEmpty(op3)
                         &&!TextUtils.isEmpty(op4)
-                        &&!TextUtils.isEmpty(cat)){
+                        &&!TextUtils.isEmpty(cat)
+                        &&!TextUtils.isEmpty(tym)){
 
-                    CreatQuestions(ques , ans, op1 ,op2,op3,op4,cat);
+                    CreatQuestions(ques , ans, op1 ,op2,op3,op4,cat , tym);
                 }
                 else {
                     Toast.makeText(CreateQuiz.this, "Check The Fields", Toast.LENGTH_SHORT).show();
@@ -73,7 +76,7 @@ public class CreateQuiz extends AppCompatActivity {
         });
     }
 
-    private void CreatQuestions(String ques, String ans, String op1, String op2, String op3, String op4, String cat) {
+    private void CreatQuestions(String ques, String ans, String op1, String op2, String op3, String op4, String cat, String tym) {
 
         mRootRef = FirebaseDatabase.getInstance().getReference("Questions").child("Categories").child(cat).push();
 
@@ -84,7 +87,7 @@ public class CreateQuiz extends AppCompatActivity {
         userMap.put("opt3" ,op3);
         userMap.put("opt4" ,op4);
         userMap.put("answer" ,ans);
-        userMap.put("time" ,"");
+        userMap.put("time" ,tym);
 
         mRootRef.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
