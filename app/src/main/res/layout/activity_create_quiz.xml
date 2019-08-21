@@ -34,7 +34,7 @@
         android:orientation="vertical">
 
     <Spinner
-        android:id="@+id/registerrole"
+        android:id="@+id/catSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/edbg"
@@ -121,6 +121,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:text="Create Quiz"
+        android:id="@+id/quizBtn"
         android:textColor="@android:color/white"
         android:textAllCaps="false"
         android:layout_margin="25dp"
