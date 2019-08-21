@@ -109,10 +109,13 @@ public class NavigationActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_logical)
         {
+            startActivity(new Intent(getApplicationContext(), LogicalCategoryRV.class));
+
 
         }
         else if (id == R.id.nav_analytical)
         {
+            startActivity(new Intent(getApplicationContext(), AnalyticalQuestionsRV.class));
 
         }
 

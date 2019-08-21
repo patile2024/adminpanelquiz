@@ -18,8 +18,7 @@ import com.squadtech.adminpanelquiz.Models.GeneralCategoryModel;
 
 import java.util.ArrayList;
 
-public class LogicalCategoryRV extends AppCompatActivity {
-
+public class AnalyticalQuestionsRV extends AppCompatActivity {
     private RecyclerView questionRecyclerView;
     private DatabaseReference mRootRef_retrieve;
     private FirebaseAuth mAuth;
@@ -27,17 +26,18 @@ public class LogicalCategoryRV extends AppCompatActivity {
     private ArrayList<GeneralCategoryModel> listModel = new ArrayList<>();
     private GeneralQuestionAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logical_category_rv);
+        setContentView(R.layout.activity_analytical_questions_rv);
 
-        questionRecyclerView = findViewById(R.id.logical_Questions_rvID);
+        questionRecyclerView = findViewById(R.id.Analytical_Questions_rvID);
         questionRecyclerView.setHasFixedSize(true);
         questionRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mAuth = FirebaseAuth.getInstance();
-        mRootRef_retrieve = FirebaseDatabase.getInstance().getReference("Questions").child("Categories").child("Logical");
+        mRootRef_retrieve = FirebaseDatabase.getInstance().getReference("Questions").child("Categories").child("Analytical");
 
         mRootRef_retrieve.addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,4 +58,5 @@ public class LogicalCategoryRV extends AppCompatActivity {
             }
         });
     }
-}
+    }
+

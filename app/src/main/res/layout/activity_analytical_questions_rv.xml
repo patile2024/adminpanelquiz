@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogicalCategoryRV">
+    tools:context=".AnalyticalQuestionsRV">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/logical_Questions_rvID">
+        android:id="@+id/Analytical_Questions_rvID">
 
     </androidx.recyclerview.widget.RecyclerView>
 
