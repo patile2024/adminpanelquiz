@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squadtech.adminpanelquiz.AllUsers.AllUsersList_Activity;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -37,7 +38,9 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         Button manageQuiz = findViewById(R.id.manageQuiz_btnID);
+        Button allUsers = findViewById(R.id.allusers_btnID);
         mAuth = FirebaseAuth.getInstance();
+
         manageQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +48,14 @@ public class NavigationActivity extends AppCompatActivity
                 startActivity(new Intent(NavigationActivity.this, CreateQuiz.class));
             }
         });
+
+        allUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AllUsersList_Activity.class));
+            }
+        });
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
