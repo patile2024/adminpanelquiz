@@ -17,6 +17,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squadtech.adminpanelquiz.AllUsers.AllUsersList_Activity;
+import com.squadtech.adminpanelquiz.TodayRegisteredUsers.TodayRegistered;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -26,8 +27,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 
-public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         Button manageQuiz = findViewById(R.id.manageQuiz_btnID);
         Button allUsers = findViewById(R.id.allusers_btnID);
+        Button todayRegUsers = findViewById(R.id.TodayRegUser_btnID);
         mAuth = FirebaseAuth.getInstance();
 
         manageQuiz.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,13 @@ public class NavigationActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AllUsersList_Activity.class));
+            }
+        });
+
+        todayRegUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),TodayRegistered.class));
             }
         });
 
@@ -121,13 +129,10 @@ public class NavigationActivity extends AppCompatActivity
         else if (id == R.id.nav_logical)
         {
             startActivity(new Intent(getApplicationContext(), LogicalCategoryRV.class));
-
-
         }
         else if (id == R.id.nav_analytical)
         {
             startActivity(new Intent(getApplicationContext(), AnalyticalQuestionsRV.class));
-
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
