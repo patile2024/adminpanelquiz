@@ -42,13 +42,15 @@ public class TodayRegistered extends AppCompatActivity {
         getSupportActionBar().setTitle("Today Registered");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        String SaveCurrentDate;
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        SaveCurrentDate = currentDate.format(calendar.getTime());
+//        final String SaveCurrentDate;
+////        Calendar calendar = Calendar.getInstance();
+////        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+////        SaveCurrentDate = currentDate.format(calendar.getTime());
+
+        final String date = DateFormat.getDateInstance().format(new Date());
 
         mAuth = FirebaseAuth.getInstance();
-        dbReference = FirebaseDatabase.getInstance().getReference().child("Users").child("user_uid").child(SaveCurrentDate);
+        dbReference = FirebaseDatabase.getInstance().getReference().child("Users");
 
         allusers_rv = findViewById(R.id.today_reg_users_RV);
         allusers_rv.hasFixedSize();
@@ -60,11 +62,18 @@ public class TodayRegistered extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-                arrayList.clear();
+
+                System.err.println("done one");
                 for(DataSnapshot ds : dataSnapshot.getChildren())
                 {
+                    System.err.println("done two");
                     Today_Reg_userslist_Model model = ds.getValue(Today_Reg_userslist_Model.class);
-                    arrayList.add(model);
+
+                    if (date.equals(model.getRegistered_date()))
+                    {
+                        System.err.println("done three");
+                        arrayList.add(model);
+                    }
                 }
                 adapter_users = new TodayRegUsersListAdapter(getApplicationContext(), arrayList);
                 allusers_rv.setAdapter(adapter_users);
