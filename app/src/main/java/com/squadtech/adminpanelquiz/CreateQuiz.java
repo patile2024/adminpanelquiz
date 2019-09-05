@@ -57,6 +57,17 @@ public class CreateQuiz extends AppCompatActivity {
                 String op3 = opt3.getText().toString();
                 String op4 = opt4.getText().toString();
                 String cat = category.getSelectedItem().toString();
+                if (cat.equalsIgnoreCase("Câu hỏi chung")) {
+                    cat = "General";
+                } else if (cat.equalsIgnoreCase("Câu hỏi logic")) {
+                    cat = "Logical";
+                } else if (cat.equalsIgnoreCase("Phân tích")) {
+                    cat = "Analytical";
+                } else if (cat.equalsIgnoreCase("Toán học")) {
+                    cat = "ETEA";
+                } else {
+                    cat = "Generals";
+                }
                 String tym = time.getText().toString();
 
                 if (!TextUtils.isEmpty(ques)&&!TextUtils.isEmpty(ans)

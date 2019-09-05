@@ -30,7 +30,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttons"
-                android:text="Manage Quiz"
+                android:text="Quản lý câu hỏi"
                 android:textColor="@android:color/white"
                 android:textSize="18dp"
                 />
@@ -54,7 +54,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/buttons"
-                android:text="ALL USERS"
+                android:text="Tất cả thành viên"
                 android:textColor="@android:color/white"
                 android:textSize="18dp"
                 />
@@ -79,7 +79,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/buttons"
-            android:text="Today Registered"
+            android:text="Thành viên hôm nay"
             android:textColor="@android:color/white"
             android:textSize="18dp"
             />

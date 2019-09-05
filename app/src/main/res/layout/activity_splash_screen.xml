@@ -35,7 +35,7 @@
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="false"
-        android:text="Test Your Skills"
+        android:text="Hãy kiểm tra kiến thức của bản thân nào"
         android:textColor="@android:color/white"
         android:textSize="16dp"
         android:layout_margin="20dp"

@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Quiz"
+            android:text="Tạo câu hỏi"
             android:textColor="@android:color/white"
             android:textSize="24sp"
             android:gravity="center"
@@ -46,7 +46,7 @@
         android:layout_marginStart="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question: "
+        android:text="Câu hỏi: "
         android:textSize="18sp"
         />
         <EditText
@@ -57,7 +57,7 @@
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Write your Question"
+            android:hint="Viết câu hỏi vào đây"
             android:id="@+id/writeQuestion"
             />
     <LinearLayout
@@ -70,7 +70,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Option 1"
+            android:hint="Đáp án 1"
             android:layout_marginBottom="10dp"
             android:id="@+id/option1"
             />
@@ -78,7 +78,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Option 2"
+            android:hint="Đáp án 2"
             android:layout_marginBottom="10dp"
             android:id="@+id/option2"
             />
@@ -86,7 +86,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Option 3"
+            android:hint="Đáp án 3"
             android:layout_marginBottom="10dp"
             android:id="@+id/option3"
             />
@@ -94,7 +94,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Option 4"
+            android:hint="Đáp án 4"
             android:id="@+id/option4"
             />
 
@@ -105,7 +105,7 @@
             android:layout_marginStart="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Time :"
+            android:text="Thời gian trả lời :"
             android:textSize="18sp"
             />
 
@@ -115,21 +115,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:inputType="number"
-            android:hint="Time in seconds"/>
+            android:hint="Thời gian ở dạng giây"/>
 
     <TextView
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correct Answer :"
+        android:text="Câu trả loời đúng :"
         android:textSize="18sp"
         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Write a Correct Answer"
+        android:hint="Điền câu trả lời đúng vào đây"
         android:id="@+id/crctanswer"
         android:layout_margin="20dp"
         />
@@ -139,7 +139,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:text="Create Quiz"
+        android:text="Tạo mới"
         android:id="@+id/quizBtn"
         android:textColor="@android:color/white"
         android:textAllCaps="false"

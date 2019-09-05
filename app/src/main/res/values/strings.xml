@@ -6,23 +6,23 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_search">Search User</string>
 
-    <string name="general_quiz">General Quiz</string>
-    <string name="etea_quiz">ETEA</string>
-    <string name="logical_quiz">Logical Quiz</string>
-    <string name="analytical_quiz">Analytical Quiz</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="general_quiz">Câu hỏi chung</string>
+    <string name="etea_quiz">Kiến thức toán</string>
+    <string name="logical_quiz">Câu hỏi logic</string>
+    <string name="analytical_quiz">Câu hỏi phân tích</string>
+    <string name="menu_tools">Chức năng</string>
+    <string name="menu_share">Chia sẻ</string>
+    <string name="menu_send">Gửi</string>
     <string name="title_activity_navigation">NavigationActivity</string>
 
     <string-array name="quiztypes">
-        <item>Select Category</item>
-        <item>General</item>
-        <item>Logical</item>
-        <item>Analytical</item>
-        <item>ETEA</item>
+        <item>Chọn loại câu hỏi</item>
+        <item>Câu hỏi chung</item>
+        <item>Câu hỏi logic</item>
+        <item>Phân tích</item>
+        <item>Toán học</item>
 
     </string-array>
 </resources>
